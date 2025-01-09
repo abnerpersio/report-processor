@@ -1,4 +1,4 @@
-import { response } from "@/lib/response";
+import { response } from "@/lib/utils/response";
 
 export async function handler() {
   const total = 2_000;

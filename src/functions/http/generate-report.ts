@@ -1,7 +1,7 @@
 import { Env } from "@/config/env";
-import { parseBody } from "@/lib/request";
-import { response } from "@/lib/response";
-import { sqsClient } from "@/lib/sqs";
+import { sqsClient } from "@/lib/clients/sqs";
+import { parseBody } from "@/lib/utils/request";
+import { response } from "@/lib/utils/response";
 import { SendMessageCommand } from "@aws-sdk/client-sqs";
 import { APIGatewayProxyEventV2 } from "aws-lambda";
 
