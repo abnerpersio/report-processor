@@ -1,0 +1,21 @@
+{
+  "name": "live039",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "biome check"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/aws-lambda": "^8.10.147",
+    "@types/node": "^22.10.5",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.724.0",
+    "@aws-sdk/client-sqs": "^3.723.0",
+    "@aws-sdk/lib-dynamodb": "^3.724.0",
+    "@faker-js/faker": "^9.3.0"
+  }
+}
