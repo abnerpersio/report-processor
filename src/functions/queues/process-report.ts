@@ -36,8 +36,8 @@ export async function handler(event: SQSEvent) {
         continue;
       }
 
-      await mpu.uploadPart(Buffer.from(currentFile, "utf-8"));
       isMultipart = true;
+      await mpu.uploadPart(Buffer.from(currentFile, "utf-8"));
       currentFile = "";
     }
 
