@@ -23,6 +23,7 @@ export async function handler(event: SQSEvent) {
   try {
     const header = "Id,Nome,E-mail,Cargo\n";
     let currentFile = header;
+    let isMultipart = false;
 
     const paginator = getPaginatedLeads();
 
@@ -36,11 +37,16 @@ export async function handler(event: SQSEvent) {
       }
 
       await mpu.uploadPart(Buffer.from(currentFile, "utf-8"));
-      currentFile = header;
+      isMultipart = true;
+      currentFile = "";
     }
 
-    if (currentFile.length > header.length) {
+    if (isMultipart && !!currentFile) {
       await mpu.uploadPart(Buffer.from(currentFile, "utf-8"));
+    }
+
+    if (!isMultipart && !!currentFile) {
+      // TODO: handle default upload to S3
     }
 
     await mpu.complete();
